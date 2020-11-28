@@ -1,9 +1,4 @@
-let horario = [];
-let day = "Miercoles";
-let linkZoom;
-let horario_ordenado;
-let actual_class;
-let until_next_class, next_class;
+let next_class, actual_class, horario_ordenado, linkZoom, day = "Miercoles", horario = [];
 
 const microcontroladores = [
     "Microcontroladores",
@@ -16,7 +11,7 @@ const arduino = [
     "Arduino",
     "Marco",
     ["Lunes", "Martes","Miercoles"],
-    "1140","2300"
+    "1140","1320"
 ];
 
 const calculo = [
@@ -71,14 +66,6 @@ const fisica = [
 //         break;
 // }
 
-function toNextClass() {
-    document.write(`<p>${until_next_class}</p>`);
-}
-
-function nextClass() {
-    document.write(`<p>${next_class}</p>`);
-}
-
 horario.push([microcontroladores[0],microcontroladores[3],microcontroladores[4]]);
 horario.push([arduino[0],arduino[3],arduino[4]]);
 
@@ -130,9 +117,19 @@ function horario_check() {
 function actualClass() {
     document.write(`<p>${actual_class}</p>`);
 }
+
+// function toNextClass() {
+//     document.write(`<p>${until_next_class}</p>`);
+// }
+
+function nextClass() {
+    document.write(`<p>${next_class}</p>`);
+}
                 
 actual_class = horario[0][0];
-                
+
+next_class = horario[1][0];
+
 let h = new Date();
 let hour = h.getHours();
                 
@@ -140,8 +137,6 @@ let m = new Date();
 let minute = m.getMinutes();
                 
 let to_string = toString(hour, minute);
-                
-                
                 
 let hourOut = hour.toString() + minute.toString();
                 
