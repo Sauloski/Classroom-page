@@ -2,6 +2,8 @@ let horario = [];
 let day = "Miercoles";
 let linkZoom;
 let horario_ordenado;
+let actual_class;
+let until_next_class, next_class;
 
 const microcontroladores = [
     "Microcontroladores",
@@ -14,7 +16,7 @@ const arduino = [
     "Arduino",
     "Marco",
     ["Lunes", "Martes","Miercoles"],
-    "1140","1320"
+    "1140","2300"
 ];
 
 const calculo = [
@@ -77,48 +79,47 @@ function nextClass() {
     document.write(`<p>${next_class}</p>`);
 }
 
-function actualClass() {
-    document.write(`<p>${actual_class}</p>`);
-}
+horario.push([microcontroladores[0],microcontroladores[3],microcontroladores[4]]);
+horario.push([arduino[0],arduino[3],arduino[4]]);
 
 function todayClassDay() {
     if(microcontroladores[2].includes(day) && hourOut > microcontroladores[4]) {
         console.log("micro");
-        horario.push([microcontroladores[0],microcontroladores[3],microcontroladores[4]]);
+        // horario.push([microcontroladores[0],microcontroladores[3],microcontroladores[4]]);
     }
-
+    
     if(arduino[2].includes(day) && hourOut > arduino[4]) {
-        horario.push([arduino[0],arduino[3],arduino[4]]);
+        // horario.push([arduino[0],arduino[3],arduino[4]]);
     }
-
+    
     // if(calculo[2].includes(day) ) {
-    //     console.log("calculo");
-    //     horario.push(calculo[0]);
-    //     horario.push(calculo[3]);
-    // }
-
+        //     console.log("calculo");
+        //     horario.push(calculo[0]);
+        //     horario.push(calculo[3]);
+        // }
+        
     // if(ctsyv[2].includes(day) ) {
-    //     console.log("ctsyv");
-    //     horario.push(ctsyv[0]);
-    //     horario.push(ctsyv[3]);
-    // }
-
+        //     console.log("ctsyv");
+        //     horario.push(ctsyv[0]);
+        //     horario.push(ctsyv[3]);
+        // }
+            
     // if(ingles[2].includes(day) ) {
-    //     console.log("ingles");
-    //     horario.push([ingles[0]]);
-    //     horario.push(ingles[3]);
-    // }
-
+        //     console.log("ingles");
+        //     horario.push([ingles[0]]);
+        //     horario.push(ingles[3]);
+        // }
+                
     // if(fisica[2].includes(day) ) {
-    //     console.log("fisica");
-    //     horario.push(fisica[0]);
-    //     horario.push(fisica[3]);
-    // }
-
+        //     console.log("fisica");
+        //     horario.push(fisica[0]);
+        //     horario.push(fisica[3]);
+        // }
+                    
 }
-
-horario_ordenado = horario.sort(function(a, b){return b-a});
-
+                
+horario = horario.sort(function(a, b){return b-a});
+                
 function horario_check() {
     if(horario_ordenado[0][2] > hourOut){
         console.log("hola");
@@ -126,22 +127,24 @@ function horario_check() {
     }
 }
 
+function actualClass() {
+    document.write(`<p>${actual_class}</p>`);
+}
+                
+actual_class = horario[0][0];
+                
 let h = new Date();
 let hour = h.getHours();
-    
+                
 let m = new Date();
 let minute = m.getMinutes();
-    
-let s = new Date();
-let second = s.getSeconds();
-    
+                
 let to_string = toString(hour, minute);
-
-let until_next_class, next_class, actual_class;
-
-
+                
+                
+                
 let hourOut = hour.toString() + minute.toString();
-
+                
 if(day == "Sabado" || day == "Domingo") {
     function classDay(){
         document.write("<h1>Hoy no hay clase</h1>");
@@ -153,33 +156,33 @@ else {
     }
 }
 
-if(hourOut > microcontroladores[3] && hourOut < microcontroladores[4]) {
-    actual_class = "Microcontroladores";
-}
+// if(hourOut > microcontroladores[3] && hourOut < microcontroladores[4]) {
+//     actual_class = "Microcontroladores";
+// }
 
-else if(hourOut > arduino[3] && hourOut < arduino[4]) {
-    actual_class = "Ardiuino";
-}
+// else if(hourOut > arduino[3] && hourOut < arduino[4]) {
+//     actual_class = "Arduino";
+// }
 
-else if(hourOut > calculo[3] && hourOut < calculo[4]) {
-    actual_class = "Calculo integral";
-}
+// else if(hourOut > calculo[3] && hourOut < calculo[4]) {
+//     actual_class = "Calculo integral";
+// }
 
-else if(hourOut > ctsyv[3] && hourOut < ctsyv[4]) {
-    actual_class = "CTSyV";
-}
+// else if(hourOut > ctsyv[3] && hourOut < ctsyv[4]) {
+//     actual_class = "CTSyV";
+// }
 
-else if(hourOut > ingles[3] && hourOut < ingles[4]) {
-    actual_class = "Ingles";
-}
+// else if(hourOut > ingles[3] && hourOut < ingles[4]) {
+//     actual_class = "Ingles";
+// }
 
-else if(hourOut > fisica[3] && hourOut < fisica[4]) {
-    actual_class = "Fisica";
-}
+// else if(hourOut > fisica[3] && hourOut < fisica[4]) {
+//     actual_class = "Fisica";
+// }
 
-else {
-    actual_class = "No hay clase";
-}
+// else {
+//     actual_class = "No hay clase";
+// }
 
 
 // if(actual_class == "Microcontroladores" || actual_class == "Arduino") {
