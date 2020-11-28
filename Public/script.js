@@ -1,5 +1,49 @@
-let day = Miercoles;
+let horario = [];
+let day = "Miercoles";
 let linkZoom;
+let horario_ordenado;
+
+const microcontroladores = [
+    "Microcontroladores",
+    "Marco",
+    ["Miercoles", "Jueves", "Viernes"],
+    "700","840"
+];
+
+const arduino = [
+    "Arduino",
+    "Marco",
+    ["Lunes", "Martes","Miercoles"],
+    "1140","1320"
+];
+
+const calculo = [
+    "Calculo integral",
+    "Ivan",
+    ["Lunes", "Martes", "Jueves"],
+    "1050", "1140"
+];
+
+const ctsyv = [
+    "CTSyV",
+    "Lourdes",
+    ["Martes"],
+    "1000", "1050"
+];
+
+const ingles = [
+    "Ingles",
+    "Eugenia",
+    ["Lunes", "Martes"],
+    "700", "840"
+];
+
+const fisica = [
+    "Fisica",
+    "Exiquio",
+    ["Martes"],
+    "840", "930"
+];
 
 // switch (new Date().getDay()) {
 //     case 0:
@@ -38,17 +82,14 @@ function actualClass() {
 }
 
 function todayClassDay() {
-    if(microcontroladores[2].includes(day) ) {
+    if(microcontroladores[2].includes(day) && hourOut > microcontroladores[4]) {
         console.log("micro");
-        horario.push([microcontroladores[0]]);
-        horario.push(microcontroladores[3]);
+        horario.push([microcontroladores[0],microcontroladores[3],microcontroladores[4]]);
     }
 
-    // if(arduino[2].includes(day) ) {
-    //     console.log("arduino");
-    //     horario.push(arduino[0]);
-    //     horario.push(arduino[3]);
-    // }
+    if(arduino[2].includes(day) && hourOut > arduino[4]) {
+        horario.push([arduino[0],arduino[3],arduino[4]]);
+    }
 
     // if(calculo[2].includes(day) ) {
     //     console.log("calculo");
@@ -73,6 +114,16 @@ function todayClassDay() {
     //     horario.push(fisica[0]);
     //     horario.push(fisica[3]);
     // }
+
+}
+
+horario_ordenado = horario.sort(function(a, b){return b-a});
+
+function horario_check() {
+    if(horario_ordenado[0][2] > hourOut){
+        console.log("hola");
+        horario_ordenado.shift()
+    }
 }
 
 let h = new Date();
@@ -88,47 +139,6 @@ let to_string = toString(hour, minute);
 
 let until_next_class, next_class, actual_class;
 
-const microcontroladores = [
-    "Microcontroladores",
-    "Marco",
-    ["Miercoles", "Jueves", "Viernes"],
-    "700","840"
-];
-
-const arduino = [
-    "Arduino",
-    "Marco",
-    ["Lunes", "Martes"],
-    "1140","1320"
-];
-
-const calculo = [
-    "Calculo integral",
-    "Ivan",
-    ["Lunes", "Martes", "Jueves"],
-    "1050", "1139"
-];
-
-const ctsyv = [
-    "CTSyV",
-    "Lourdes",
-    ["Martes"],
-    "1000", "1050"
-];
-
-const ingles = [
-    "Ingles",
-    "Eugenia",
-    ["Lunes", "Martes"],
-    "700", "840"
-];
-
-const fisica = [
-    "Fisica",
-    "Exiquio",
-    ["Martes"],
-    "840", "930"
-];
 
 let hourOut = hour.toString() + minute.toString();
 
@@ -144,32 +154,26 @@ else {
 }
 
 if(hourOut > microcontroladores[3] && hourOut < microcontroladores[4]) {
-    console.log("1");
     actual_class = "Microcontroladores";
 }
 
 else if(hourOut > arduino[3] && hourOut < arduino[4]) {
-    console.log("1");
     actual_class = "Ardiuino";
 }
 
 else if(hourOut > calculo[3] && hourOut < calculo[4]) {
-    console.log("1");
     actual_class = "Calculo integral";
 }
 
 else if(hourOut > ctsyv[3] && hourOut < ctsyv[4]) {
-    console.log("1");
     actual_class = "CTSyV";
 }
 
 else if(hourOut > ingles[3] && hourOut < ingles[4]) {
-   console.log("1");
     actual_class = "Ingles";
 }
 
 else if(hourOut > fisica[3] && hourOut < fisica[4]) {
-    console.log("1");
     actual_class = "Fisica";
 }
 
@@ -177,7 +181,6 @@ else {
     actual_class = "No hay clase";
 }
 
-let horario = [];
 
 // if(actual_class == "Microcontroladores" || actual_class == "Arduino") {
 //     linkZoom = "https://zoom.us/j/3408751805?pwd=VEg3YWlCcXNXRFI0RnE2ZUR5WFZSZz09";
