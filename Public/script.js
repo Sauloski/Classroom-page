@@ -103,6 +103,14 @@ function todayClassDay() {
                 
 horario = horario.sort(function(a, b){return b-a});
 
+if (horario.length === 0) {
+    actual_class =  "No hay clase";
+}
+
+if (horario.length <= 1) {
+    next_class = "Ya no hay clase";
+}
+
 linkzoom = horario[0][3];
 
 function gotoclass(){
