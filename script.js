@@ -112,12 +112,15 @@ if (horario.length <= 1) {
 }
 
 if (horario.length >= -1){
-     linkzoom = horario[0][3];
+    console.log("Matate");
+}
+else{
+    linkzoom = horario[0][3];
 
     actual_class = horario[0][0];
 
     next_class = horario[1][0];
-}   
+}
 
 function gotoclass(){
     location.replace(linkzoom);
