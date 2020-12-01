@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="/Public/script.js"></script>
 </head>
-<body>
+<body onload="todayClassDay()">
     <header class="header">
         <div class="header__items">
             <p class="header__p">5BME</p>
@@ -28,9 +28,6 @@
             <h2>Clase Actual</h2>
             <p><script>actualClass()</script></p>
             <button onclick="gotoclass()" id="gotoclass" class="gotoclass">Ir a la clase</button>
-        </div>
-        <div class="classday">
-            <p><script>classDay()</script></p>
         </div>
     </section>
 </body>
