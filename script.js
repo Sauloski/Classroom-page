@@ -113,6 +113,10 @@ if (horario.length <= 1) {
 
 linkzoom = horario[0][3];
 
+actual_class = horario[0][0];
+
+next_class = horario[1][0];
+
 function gotoclass(){
     location.replace(linkzoom);
 }
@@ -131,10 +135,6 @@ function actualClass() {
 function nextClass() {
     document.write(`<p>${next_class}</p>`);
 }
-                
-actual_class = horario[0][0];
-
-next_class = horario[1][0];
 
 let h = new Date();
 let hour = h.getHours();
