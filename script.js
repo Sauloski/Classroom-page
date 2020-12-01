@@ -111,6 +111,10 @@ if (horario.length <= 1) {
     next_class = "Ya no hay clase";
 }
 
+if (horario.length >= -1){
+      
+}   
+
 linkzoom = horario[0][3];
 
 actual_class = horario[0][0];
