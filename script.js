@@ -1,4 +1,4 @@
-let next_class, actual_class, horario_ordenado, linkzoom, day, horario = [];
+let next_class, actual_class, horario_ordenado, linkzoom, day, horario = [], hourOut;
 
 const microcontroladores = [
     "Microcontroladores",
@@ -145,14 +145,3 @@ let minute = m.getMinutes();
 let to_string = toString(hour, minute);
                 
 let hourOut = hour.toString() + minute.toString();
-                
-if(day == "Sabado" || day == "Domingo") {
-    function classDay(){
-        document.write("<h1>Hoy no hay clase</h1>");
-    }    
-}
-else {
-    function classDay(){
-        document.write("<h1></h1>");
-    }
-}
