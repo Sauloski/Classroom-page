@@ -144,4 +144,4 @@ let minute = m.getMinutes();
                 
 let to_string = toString(hour, minute);
                 
-let hourOut = hour.toString() + minute.toString();
+hourOut = hour.toString() + minute.toString();
