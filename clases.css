@@ -68,7 +68,7 @@ body {
     display: grid;
     height: calc(100vh - 156px);
     grid-template-columns: 100%;
-    grid-template-rows: repeat(5, 18% 2%);
+    grid-template-rows: repeat(6, 15% 1.6%);
     color: black;
     font-size: 20px;
 }
@@ -121,3 +121,5 @@ td {
 .class4 {grid-area: 7 /1;}
 
 .class5 {grid-area: 9 / 1;}
+
+.class6 {grid-area: 11 / 1;}
