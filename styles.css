@@ -12,7 +12,8 @@
 }
 
 body {
-    background: linear-gradient(var(--green), var(--blue));
+    background: rgb(170,0,166);
+    background: linear-gradient(0deg, rgba(170,0,166,1) 0%, rgba(104,45,253,1) 100%);
     background-repeat: no-repeat;
     max-width: 100%;
 }
