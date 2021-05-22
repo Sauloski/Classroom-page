@@ -1,5 +1,13 @@
 let next_class, actual_class, horario_ordenado, linkzoom, day, horario = [], hourOut;
 
+let moment = new Date();
+let hour = moment.getHours();
+let minute = moment.getMinutes();
+                
+let to_string = toString(hour, minute);
+                
+hourOut = hour.toString() + minute.toString();
+
 const microcontroladores = [
     "Microcontroladores",
     "Marco",
@@ -11,7 +19,7 @@ const microcontroladores = [
 const arduino = [
     "Arduino",
     "Marco",
-    ["Lunes", "Martes","Miercoles"],
+    ["Lunes", "Martes", "Miercoles"],
     "1140","1320",
     "https://zoom.us/j/3408751805?pwd=VEg3YWlCcXNXRFI0RnE2ZUR5WFZSZz09"
 ];
@@ -71,7 +79,6 @@ switch (new Date().getDay()) {
         day = "Sabado";
         break;
 }
-
 // horario.push([microcontroladores[0],microcontroladores[3],microcontroladores[4],microcontroladores[5]]);
 // horario.push([arduino[0],arduino[3],arduino[4],arduino[5]]);
 
@@ -100,8 +107,32 @@ function todayClassDay() {
         horario.push([fisica[0],fisica[3],fisica[4],fisica[5]]);
     }
 }
+
+let hora = document.getElementById("hour")
+// hora.innerHTML = `La hora es: ${hour}:${minute}`
+
+let dia = document.getElementById("dia")
+dia.innerHTML = `${day}`
+
+function newhour () {
+    moment = new Date()
+    hour = moment.getHours();
+    minute = moment.getMinutes();
+
+    if (minute < 10) {
+        minute = "0" + minute
+    }
+
+    hora.innerHTML = `La hora es: ${hour}:${minute}`
+
+    dia.innerHTML = `${day}`
+
+    console.log("Actualizacion");
+}
+
+setInterval(newhour, 1000)
                 
-horario = horario.sort(function(a, b){return b-a});
+horario.sort((a, b) => {return b-a})
 
 if (horario.length === 0) {
     actual_class =  "No hay clase";
@@ -140,13 +171,3 @@ function actualClass() {
 function nextClass() {
     document.write(`<p>${next_class}</p>`);
 }
-
-let h = new Date();
-let hour = h.getHours();
-                
-let m = new Date();
-let minute = m.getMinutes();
-                
-let to_string = toString(hour, minute);
-                
-hourOut = hour.toString() + minute.toString();

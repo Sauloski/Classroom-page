@@ -3,33 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5BME</title>
+    <title>6BME</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <script>todatClassday()</script>
     <header class="header">
         <div class="header__items">
-            <p class="header__p">5BME</p>
+            <p class="header__p">6BME</p>
             <div class="header__menu">
-                <ul>
+                <!-- <ul>
                     <li><a href="clases.html">Clases</a></li>
-                    <!-- <li><a href="/">Maestros</a></li> -->
-                </ul>
+                </ul> -->
             </div>
         </div>
     </header>
     <section class="main">
-        <div class="next-class poster">
-            <h2>Siguiente Clase</h2>
-            <p><script>nextClass()</script></p>
+        <div class="data">
+            <h1 class="hora" id="hour"></h1>
+            <h2 class="dia" id="dia"></h2>
         </div>
-        <div class="current-class poster">
-            <h2>Clase Actual</h2>
-            <p><script>actualClass()</script></p>
-            <button onclick="gotoclass()" id="gotoclass" class="gotoclass">Ir a la clase</button>
+        <div class="clases poster">
+            <div class="class">
+                <p>Filosofía</p>
+                <p>-</p>
+                <a class="gotoclass" href="https://us04web.zoom.us/j/78409479249?pwd=WExqaUZqQS9tV01RT2prVWdGUDA2dz09">Link</a>
+            </div>
+            <div class="class">
+                <p>Implementa</p>
+                <p>-</p>
+                <a class="gotoclass" href="https://us04web.zoom.us/j/77634843031">Link</a>
+            </div>
+            <div class="class">
+                <p>Probabilidad</p>
+                <p>-</p>
+                <a class="gotoclass" href="https://zoom.us/j/91606548079?pwd=blBaU1p5YjNaUEREVzJHN0ppdzBqQT09">Link</a>
+            </div>
+            <div class="class">
+                <p>Física</p>
+                <p>-</p>
+                <a class="gotoclass" href="https://zoom.us/j/97304329253?pwd=L2d6d05nRjVWb2lMS0dKOUZyV2E1QT09">Link</a>
+            </div>
+            <div class="class">
+                <p>Dibujo</p>
+                <p>-</p>
+                <a class="gotoclass" href="https://us04web.zoom.us/j/72775223173?pwd=ZDI1T0Q5WHFsYjdYZzNHYUZRa2lYdz09">Link</a>
+            </div>
+            <div class="class">
+                <p>Domotica</p>
+                <p>-</p>
+                <a class="gotoclass" href="https://zoom.us/j/96621960447?pwd=OTJBNWU1U2trQnBtNlpwUGw4YUVrdz09">Link</a>
+            </div>
         </div>
     </section>
+    <script src="script.js"></script>
 </body>
 </html>
